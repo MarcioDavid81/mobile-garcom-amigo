@@ -9,8 +9,8 @@ function Routes() {
 
     if (loading) {
         return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#f5f7fb" }}>
-                <ActivityIndicator size="large" color="#000" />
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fffaf2" }}>
+                <ActivityIndicator size="large" color="#292827" />
                 <Text>Loading...</Text>
             </View>
         );

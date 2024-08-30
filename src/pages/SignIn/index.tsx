@@ -30,6 +30,7 @@ export default function SignIn() {
                     value={email}
                     onChangeText={setEmail}
                 />
+
                 <TextInput
                     placeholder="Senha"
                     style={styles.input}
@@ -38,6 +39,7 @@ export default function SignIn() {
                     value={password}
                     onChangeText={setPassword}
                 />
+
                 <TouchableOpacity
                     onPress={handleLogin}
                     style={styles.touchable}

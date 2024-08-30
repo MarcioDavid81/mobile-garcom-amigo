@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, TouchableOpacity, TextInput, StyleSheet } fro
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackParamsList } from "../../routes/app.routes";
+import { api } from "@/src/services/api";
 
 export default function Dashboard() {
 
@@ -17,13 +18,24 @@ export default function Dashboard() {
             
             return;
         }
+
+        const response = await api.post("/order", {
+            table: Number(number),
+            name: client,
+        });
+
         navigation.navigate("Order", {
             number: number,
             client: client,
-            order_id: '1',
+            order_id: response.data.id,
         });
 
+        setNumber("");
+        setClient("");
+
     }
+
+  
 
     return (
         <SafeAreaView style={styles.container}>
@@ -61,6 +73,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingVertical: 16,
+        backgroundColor: "#fffaf2"
     },
     title:{
         fontSize: 30,
@@ -94,4 +107,14 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 24,
     },
+    logOutButton: {
+        backgroundColor: "tomato",
+        padding: 16,
+        borderRadius: 50,
+        marginTop: 32,
+        width: 60,
+        height: 60,
+        alignItems: "center",
+        justifyContent: "center",
+    }
 });
