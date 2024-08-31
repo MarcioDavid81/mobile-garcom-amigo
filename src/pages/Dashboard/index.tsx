@@ -4,8 +4,12 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackParamsList } from "../../routes/app.routes";
 import { api } from "@/src/services/api";
+import { AuthContext } from "@/src/contexts/AuthContext";
+import { Feather } from "@expo/vector-icons";
 
 export default function Dashboard() {
+
+    const { signOut } = React.useContext(AuthContext);
 
     const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 
@@ -63,6 +67,18 @@ export default function Dashboard() {
                     Abrir Mesa
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.logOutButton}
+                onPress={signOut}
+            >
+                <Text style={styles.textButton}>
+                    <Feather name="log-out" size={24} color="#fff" />
+                    
+                </Text>
+                <Text style={styles.text_Button}>
+                    Sair
+                </Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -108,13 +124,18 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
     logOutButton: {
-        backgroundColor: "tomato",
+        backgroundColor: "#c66300",
         padding: 16,
         borderRadius: 50,
-        marginTop: 32,
         width: 60,
         height: 60,
         alignItems: "center",
         justifyContent: "center",
+        position: "absolute",
+        bottom: 16,
+    },
+    text_Button: {
+        color: "#fff",
+        fontSize: 12,
     }
 });
