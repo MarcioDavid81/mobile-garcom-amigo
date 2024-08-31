@@ -22,6 +22,8 @@ export default function SignIn() {
         <View style={styles.container}>
             <Image source={require("../../assets/logo.png")} />
 
+            <Text style={styles.textTitle}>Faça login</Text>
+
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder="E-mail"
@@ -32,7 +34,7 @@ export default function SignIn() {
                 />
 
                 <TextInput
-                    placeholder="Senha"
+                    placeholder="******"
                     style={styles.input}
                     placeholderTextColor="#c663003a"
                     secureTextEntry={true}
@@ -68,6 +70,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingVertical: 32,
         paddingHorizontal: 16,
+    },
+    textTitle: {
+        fontSize: 24,
+        color: "#C66300",
+        marginTop: 16,
     },
     input: {
         width: "95%",
